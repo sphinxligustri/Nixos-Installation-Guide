@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # luks setup
-  boot.initrd.luks.devices.luksCrypted.device = "/dev/nvme0n1p2";
+  boot.initrd.luks.devices.luksCrypted.device = "/dev/sda2";
   boot.initrd.luks.devices.luksCrypted.allowDiscards = true; # Allow TRIM commands for SSDs
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -29,7 +29,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
-  time.timeZone = "Africa/Tunis";
+  time.timeZone = "Berlin/Europe";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -45,9 +45,8 @@
 
   # Set XKB keyboard layout options
   services.xserver.xkb = {
-    layout = "us"; # Set the keyboard layout to US
-    variant = "colemak_dh"; # Use the Colemak DH variant
-    # options = "eurosign:e,caps:escape";
+    layout = "no"; # Set the keyboard layout to US    
+    options = "eurosign:e,caps:escape";
   };
 
   # Enable the KDE Plasma desktop environment
@@ -78,9 +77,9 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.titanknis = {
+  users.users.pio = {
     isNormalUser = true;
-    home = "/home/titanknis";
+    home = "/home/pio";
     extraGroups = [
       "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
